@@ -1,0 +1,22 @@
+CC = gcc
+
+OBJS = main.o calculate.o
+
+LIB = lib_mult.a
+
+TARGET = program
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS) $(LIB)
+	$(CC) -g -Wall -o $@ $(OBJS) $(LIB)
+
+main.o: main.c HW_01.h
+	$(CC) -g -Wall -c main.c
+
+calculate.o: calculate.c HW_01.h
+	$(CC) -g -Wall -c calculate.c
+
+clean:
+	rm -f $(OBJS) $(TARGET)
+
